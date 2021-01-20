@@ -1,0 +1,15 @@
+@import './icon.wxss';
+
+page,
+view,
+text,
+form,
+button,
+input,
+textarea,
+label,
+scroll-view,
+image,
+swiper {
+  box-sizing: border-box;
+}

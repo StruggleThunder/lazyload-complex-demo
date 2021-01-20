@@ -1,0 +1,130 @@
+page {
+  width: 100%;
+  height: 100vh;
+}
+
+/* 分类区域样式 */
+.menu-calssify-wrap {
+  width: 130rpx;
+  height: 100%;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.menu-classify {
+  width: 160rpx;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.menu-classify--block {
+  width: 130rpx;
+  min-height: 160rpx;
+  padding-bottom: 30rpx;
+}
+
+.menu-classify--block .box {
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}
+
+.menu-classify--block .box.active {
+  background: #f3f3f3;
+  font-weight: 600;
+  color: rgb(13, 149, 167);
+  position: relative;
+}
+
+.menu-classify--block .box.active:before {
+  content: '';
+  position: absolute;
+  width: 8rpx;
+  height: 68%;
+  background: var(--color-strong);
+  border-radius: 4rpx;
+  left: 0;
+  top: 16%;
+}
+
+.menu-classify--block .box .iconfont {
+  font-size: 72rpx;
+}
+
+.menu-classify--block .box .name {
+  font-size: 22rpx;
+}
+
+
+/* 内容样式区域 */
+.goods-scroll {
+  position: absolute;
+  width: calc(100% - 130rpx);
+  height: 100%;
+  background: #f4f4f4;
+  top: 0;
+  right: 0;
+  transition: all .3s linear;
+  -webkit-overflow-scrolling: touch;
+}
+
+.goods-wrap {
+  width: 100%;
+  padding: 20rpx 20rpx 40rpx;
+}
+
+.title-bar {
+  width: 100%;
+  line-height: 60rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.goods-card {
+  width: 100%;
+  height: 260rpx;
+  background: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  box-shadow: 2rpx 4rpx 10rpx rgba(0, 0, 0, .15);
+  margin: 20rpx 0;
+  font-weight: bold;
+  font-size: 48rpx;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.goods-card:nth-of-type(2n){
+  height: 320rpx;
+  background: rgb(255, 218, 218);
+}
+
+.goods-card:nth-of-type(3n){
+  height: 360rpx;
+  background: rgb(218, 255, 252);
+}
+
+
+.goods-card .tips {
+  width: 100%;
+  padding: 20rpx;
+  font-size: 22rpx;
+  color: #999;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

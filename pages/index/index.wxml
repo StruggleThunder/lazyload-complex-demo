@@ -1,0 +1,61 @@
+<!-- 左边分类区域 -->
+<view class="menu-calssify-wrap">
+  <scroll-view class="menu-classify" scroll-top="{{classifyScrollTop}}" scroll-y scroll-with-animation>
+    <view class="menu-classify--block">
+      <block wx:for="{{classifyList}}" wx:key="classifyList">
+        <view class="{{classifyIdx === index ? 'box active' : 'box'}}" data-id="{{item.id}}" data-idx="{{index}}"
+          catchtap="onClassify">
+          <view class="iconfont icon-{{item.icon}}"></view>
+          <view class="name">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+
+<!-- 右边内容区域 -->
+<scroll-view class="goods-scroll" bindscroll="onGoodsScroll" bindscrolltolower="onGoodsScrolltolower"
+  scroll-into-view="{{classifyType}}" lower-threshold="200" scroll-y scroll-with-animation>
+  <view class="goods-wrap">
+    <block wx:for="{{goodsList}}" wx:for-item="pItem" wx:for-index="pIndex" wx:key="goodsList">
+      <view class="{{pItem.id}}" id="{{'classify' + pIndex}}">
+        <!-- 此判断是执行懒加载，渲染视图主要判断，可以将此判断删除看看体验评分 -->
+        <block wx:if="{{showIdxFlag >= pIndex}}">
+          <view class="title-bar">{{pItem.classifyName}}</view>
+          <view class="goods-content">
+            <block wx:for="{{pItem.products}}" wx:key="products">
+              <view class="goods-card">
+                <!-- 为了验证性能，故意嵌套多一点 -->
+                <view class="tips">
+                  <view>
+                    <view>
+                      <view>
+                        <view>
+                          <view>
+                            为了验证性能，故意嵌套多一点
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view>
+                  <view>
+                    <view>
+                      <view>
+                        <view>
+                          {{pItem.classifyName}} — {{index + 1}}
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</scroll-view>
