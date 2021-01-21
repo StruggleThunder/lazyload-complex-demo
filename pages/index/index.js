@@ -18,7 +18,7 @@ Page({
     classifyIdx: 0, // 分类索引
     classifyScrollTop: 0, // 分类滚动距顶高度
     goodsList: [], // 商品列表
-    showIdxFlag: 0, // 显示索引标识，1标识渲染前1个分组。 得根据实际情况
+    showIdxFlag: 0, // 显示索引标识，1表示渲染第一个分组。 得根据实际情况
   },
 
   onLoad(options) {
@@ -37,7 +37,7 @@ Page({
       classifyList: classifys,
       goodsList: goods 
     })
-    // tips: 初始时虽然将所有数据给赋给了goodsList，但视图中做了控制，只会展示前两组分类的数据。
+    // tips: 初始时虽然将所有数据给赋给了goodsList，但视图中做了控制，只会展示第一组的数据。
 
     // 渲染完成后再去获取视图高度
     wx.nextTick(() => {
@@ -86,9 +86,9 @@ Page({
       })
 
       wx.nextTick(() => {
-        const query = wx.createSelectorQuery();
         for (let i = 0; i < goodsList.length; i++) {
           if (idx >= i && viewHeights[i] === 0) {
+			const query = wx.createSelectorQuery();
             query
               .select(`.${goodsList[i].id}`)
               .boundingClientRect(rect => {
